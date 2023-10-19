@@ -25,7 +25,7 @@ If everything it´s ok you should see this:
 COMMAND  PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 node    6824  cex   24u  IPv6 0x409d2d698870de01      0t0  TCP *:hbci (LISTEN)
 ```
-And now we copy the the PID number, in this example 6824 and type in the terminal:
+And now we copy the the PID number, in this example 6824, and type in the terminal:
 ```bash
 kill -9 <PID number>
 ```
