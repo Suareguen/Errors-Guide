@@ -98,7 +98,7 @@ Require stack:
 This error occurs when Node.js cannot find the specified module in your code. In this case, the error message indicates that it cannot find the '../models/members.model.js' module that is being required in your 'auth.controller.js' file.
 
 To solve this problem, you can follow these steps:
-- **Verify the module path:** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
+- ***Verify the module path:*** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
 
 - **Check spelling and case:** File systems on some operating systems are case-sensitive. Ensure that the spelling and letter case in the file path exactly match the file name and folder structure on your file system.
 
