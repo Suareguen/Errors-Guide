@@ -185,6 +185,111 @@ Replace database_name with the actual name of your database, and ensure that 'us
 - **Temporary Disable Firewall/Antivirus:** in some cases, firewall or antivirus software might block the connection. Temporarily disable them and check if the issue persists.
 - **Database Server Logs:** check MySQL server logs for any additional error messages or details about the connection attempt. MySQL error logs can provide valuable information.
 
+### new error
+
+```bash
+/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:92
+          throw new SequelizeErrors.ConnectionRefusedError(err);
+                ^
+
+ConnectionRefusedError [SequelizeConnectionRefusedError]
+    at ConnectionManager.connect (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:92:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:222:24)
+    at async /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:174:32
+    at async ConnectionManager.getConnection (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:197:7)
+    at async /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/sequelize.js:305:26
+    at async Sequelize.authenticate (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/sequelize.js:457:5)
+    at async checkConnection (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/database/index.js:17:9)
+    at async checkAndSyncMySQL (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js:25:11)
+    at async startAPI (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js:36:11) {
+  parent: AggregateError
+      at internalConnectMultiple (node:net:1114:18)
+      at afterConnectMultiple (node:net:1667:5) {
+    code: 'ECONNREFUSED',
+    fatal: true,
+    [errors]: [
+      Error: connect ECONNREFUSED ::1:2345
+          at createConnectionError (node:net:1634:14)
+          at afterConnectMultiple (node:net:1664:40) {
+        errno: -61,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '::1',
+        port: 2345
+      },
+      Error: connect ECONNREFUSED 127.0.0.1:2345
+          at createConnectionError (node:net:1634:14)
+          at afterConnectMultiple (node:net:1664:40) {
+        errno: -61,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '127.0.0.1',
+        port: 2345
+      }
+    ]
+  },
+  original: AggregateError
+      at internalConnectMultiple (node:net:1114:18)
+      at afterConnectMultiple (node:net:1667:5) {
+    code: 'ECONNREFUSED',
+    fatal: true,
+    [errors]: [
+      Error: connect ECONNREFUSED ::1:2345
+          at createConnectionError (node:net:1634:14)
+          at afterConnectMultiple (node:net:1664:40) {
+        errno: -61,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '::1',
+        port: 2345
+      },
+      Error: connect ECONNREFUSED 127.0.0.1:2345
+          at createConnectionError (node:net:1634:14)
+          at afterConnectMultiple (node:net:1664:40) {
+        errno: -61,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '127.0.0.1',
+        port: 2345
+      }
+    ]
+  }
+}
+```
+
+This error message indicates that your application attempted to connect to a MySQL database, but the connection was refused by the MySQL server. Let me break down the error message for you:
+
+```bash
+ConnectionRefusedError [SequelizeConnectionRefusedError]
+```
+This line indicates that a Sequelize connection to the MySQL database was attempted, but the connection was refused by the server.
+
+```bash
+Error: connect ECONNREFUSED ::1:2345
+Error: connect ECONNREFUSED 127.0.0.1:2345
+```
+
+These lines show the specific connection errors. The ECONNREFUSED error means that the connection was actively refused by the target machine. In this case, your application tried to connect to the MySQL server on ::1 (IPv6 loopback address) and 127.0.0.1 (IPv4 loopback address) at port 2345, but the MySQL server refused the connection.
+
+Here are a few steps you can take to troubleshoot and resolve this issue:
+
+- **Check MySQL Server Status:** ensure that your MySQL server is up and running. If it's not running, start the server. You can check the status of your MySQL server using a command like mysqladmin status in the terminal.
+
+- **Verify MySQL Server Port:** double-check that your MySQL server is configured to listen on the port 2345. If your MySQL server is configured to use a different port, update your Sequelize configuration to use the correct port number.
+
+- **Check Firewall Settings:** make sure that your firewall allows connections to port 2345. If you are running a firewall on your server, configure it to allow incoming connections on the MySQL port.
+
+- **Check MySQL Bind Address:** check your MySQL server configuration file (usually my.cnf or my.ini) and ensure that MySQL is configured to listen on the correct network interface (::1 and 127.0.0.1 for loopback, or a specific IP address for external connections).
+
+- **Check Other Processes:** ensure that there are no other applications or processes already using port 2345 on your server. You can check for open ports using the netstat or lsof command.
+
+- **Database User Permissions:** verify that the user specified in your Sequelize configuration has permission to connect from the specified host (::1 and 127.0.0.1). If not, grant the necessary privileges to the user.
+
+- **Restart Your Application:** sometimes, issues can be resolved by simply restarting your application after making configuration changes.
+
+By carefully reviewing your MySQL server configuration, firewall settings, and ensuring that your application's connection details are correct, you should be able to resolve the "Connection Refused" error and successfully connect to your MySQL database.
+
 
 
 ## FrontEnd
