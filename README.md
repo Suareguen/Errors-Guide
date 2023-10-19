@@ -95,7 +95,7 @@ Require stack:
 }
 ```
 
-This error occurs when Node.js cannot find the specified module in your code. In this case, the error message indicates that it cannot find the '../models/members.model.js' module that is being required in your 'auth.controller.js' file.
+This error occurs when Node.js cannot find the specified module in your code. In this case, the error message indicates that it cannot find the ```'../models/members.model.js'``` module that is being required in your 'auth.controller.js' file.
 
 To solve this problem, you can follow these steps:
 - ***Verify the module path:*** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
