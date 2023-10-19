@@ -173,7 +173,7 @@ Here's what you can do to resolve this issue:
 - **Check Database Credentials:** double-check the username and password specified in your Sequelize configuration file. Ensure they are correct and have the necessary permissions to access the database.
 - **Verify MySQL User Privileges:** log in to your MySQL server using a MySQL client or a tool like phpMyAdmin.
 Check if the user 'userName' has the necessary privileges to connect to the database. If not, grant the required privileges using the following SQL command:
-´´´mysql
+´´´basj
 GRANT ALL PRIVILEGES ON database_name.* TO 'userName'@'localhost' IDENTIFIED BY 'password';
 ´´´
 Replace database_name with the actual name of your database, and ensure that 'userName' and 'password' match the credentials in your Sequelize configuration.
