@@ -10,6 +10,7 @@ This is a small guide to some of the most common errors that we can encounter du
   - [Cannot find module](#cannot-find-module)
   - [Acces denied](#acces-denied)
   - [ConnectionRefusedError](#connectionrefusedError)
+  - [Too many keys specified](#too-many-keys-specified)
 
 ## BackEnd
 
@@ -285,3 +286,11 @@ Here are a few steps you can take to troubleshoot and resolve this issue:
 
 By carefully reviewing your MySQL server configuration, firewall settings, and ensuring that your application's connection details are correct, you should be able to resolve the "Connection Refused" error and successfully connect to your MySQL database.
 
+
+### Too many keys specified max 64 keys allowed sequelize
+
+The error message "too many keys specified max 64 keys allowed sequelize" indicates that you are trying to define more than 64 keys (either primary or foreign keys) in your Sequelize models, exceeding the maximum limit allowed by Sequelize.
+
+Generally, this error occurs because the { alter: true } option is specified during model synchronization. The alter: true option in Sequelize allows the library to automatically make changes to the database structure to match the model definitions. When Sequelize detects discrepancies between the database structure and the models, it attempts to make the necessary alterations to align them. This can involve creating, modifying, or deleting primary and foreign keys to ensure consistency between the models and the database.
+
+In cases where specific types of discrepancies occur in the database schema and the alter: true option is used, Sequelize may attempt to create multiple keys to resolve the issue. To solve this problem, the alter option is removed from sync({ alter: true }).
