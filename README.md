@@ -7,6 +7,7 @@ This is a small guide to some of the most common errors that we can encounter du
 - [FrontEnd](#frontend)
 - [BackEnd](#BackEnd)
   - [Address already in use](#address-already-in-use)
+  - [Cannot find module](#cannot-find-module)
 - [FrontEnd](#frontend)
 
 
@@ -62,7 +63,37 @@ kill -9 6824
 ```
 Finally we can start our server with ```nodemon``` or ```node --watch index.js```.
 
+### Cannot find module
+```bash
+node:internal/modules/cjs/loader:1048
+  const err = new Error(message);
+              ^
 
+Error: Cannot find module '../models/members.model.js'
+Require stack:
+- /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/controllers/auth.controller.js
+- /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/routes/auth.router.js
+- /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/routes/index.js
+- /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1048:15)
+    at Module._load (node:internal/modules/cjs/loader:901:27)
+    at Module.require (node:internal/modules/cjs/loader:1115:19)
+    at require (node:internal/modules/helpers:130:18)
+    at Object.<anonymous> (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/controllers/auth.controller.js:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1233:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1287:10)
+    at Module.load (node:internal/modules/cjs/loader:1091:32)
+    at Module._load (node:internal/modules/cjs/loader:938:12)
+    at Module.require (node:internal/modules/cjs/loader:1115:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/controllers/auth.controller.js',
+    '/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/routes/auth.router.js',
+    '/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/api/routes/index.js',
+    '/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js'
+  ]
+}
+```
 
 
 
