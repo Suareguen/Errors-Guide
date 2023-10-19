@@ -98,15 +98,15 @@ Require stack:
 This error occurs when Node.js cannot find the specified module in your code. In this case, the error message indicates that it cannot find the '../models/members.model.js' module that is being required in your 'auth.controller.js' file.
 
 To solve this problem, you can follow these steps:
-- Verify the module path: Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
+- **Verify the module path:** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
 
-- Check spelling and case: File systems on some operating systems are case-sensitive. Ensure that the spelling and letter case in the file path exactly match the file name and folder structure on your file system.
+- **Check spelling and case:** File systems on some operating systems are case-sensitive. Ensure that the spelling and letter case in the file path exactly match the file name and folder structure on your file system.
 
-- Review module references: Double-check that you are requiring the module in the correct file. In this case, the error seems to be occurring in 'auth.controller.js', so ensure that the line of code requiring the module has the correct path and does not have any typographical errors.
+- **Review module references:** Double-check that you are requiring the module in the correct file. In this case, the error seems to be occurring in 'auth.controller.js', so ensure that the line of code requiring the module has the correct path and does not have any typographical errors.
 
-- Ensure the file is not corrupted or empty: Sometimes, files can get corrupted or accidentally become empty, leading to these types of errors. Open the 'members.model.js' file and check that the code is intact and not empty.
+- **Ensure the file is not corrupted or empty:** Sometimes, files can get corrupted or accidentally become empty, leading to these types of errors. Open the 'members.model.js' file and check that the code is intact and not empty.
 
-- Reinstall dependencies: If everything else seems correct and you are still experiencing the error, try reinstalling your project's dependencies. This can resolve issues related to installation or missing dependencies.
+- **Reinstall dependencies:** If everything else seems correct and you are still experiencing the error, try reinstalling your project's dependencies. This can resolve issues related to installation or missing dependencies.
 
 To reinstall the dependencies, open a terminal in your project directory and run the following command:
 ```bash
