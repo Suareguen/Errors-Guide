@@ -6,6 +6,7 @@ This is a small guide to some of the most common errors that we can encounter du
 <div align="center">
   <img src="https://github.com/Suareguen/Errors-Guide/raw/main/logo%20reboot.png" alt="Logo Reboot">
 </div>
+
 ## **Index** 
 
 
