@@ -2,7 +2,7 @@
 
 This is a small guide to some of the most common errors that we can encounter during the BootCamp or our work.
 
-**Índice**   
+**Index**   
 
 - [FrontEnd](#frontend)
 - [BackEnd](#BackEnd)
