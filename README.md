@@ -31,6 +31,10 @@ And now we copy the the PID number, in this example 6824, and type in the termin
 ```bash
 kill -9 <PID number>
 ```
+Example:
+```bash
+kill -9 6824
+```
 Finally we can start our server with ```nodemon``` or ```node --watch index.js```.
 
 
