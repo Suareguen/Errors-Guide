@@ -5,7 +5,7 @@ This is a small guide to some of the most common errors that we can encounter du
 **Index**   
 
 - [FrontEnd](#frontend)
-- [BackEnd (Express, MySQL, Sequelize](#BackEnd)
+- [BackEnd (Express, MySQL, Sequelize)](#BackEnd)
   - [Address already in use](#address-already-in-use)
   - [Cannot find module](#cannot-find-module)
   - [Acces denied](#acces-denied)
