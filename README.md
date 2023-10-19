@@ -9,6 +9,7 @@ This is a small guide to some of the most common errors that we can encounter du
   - [Address already in use](#address-already-in-use)
   - [Cannot find module](#cannot-find-module)
   - [Acces denied](#acces-denied)
+  - [ConnectionRefusedError](#connectionrefusedError)
 - [FrontEnd (React JS)](#frontend)
 
 
@@ -185,7 +186,7 @@ Replace database_name with the actual name of your database, and ensure that 'us
 - **Temporary Disable Firewall/Antivirus:** in some cases, firewall or antivirus software might block the connection. Temporarily disable them and check if the issue persists.
 - **Database Server Logs:** check MySQL server logs for any additional error messages or details about the connection attempt. MySQL error logs can provide valuable information.
 
-### new error
+### ConnectionRefusedError
 
 ```bash
 /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:92
