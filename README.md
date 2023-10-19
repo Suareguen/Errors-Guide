@@ -8,6 +8,7 @@ This is a small guide to some of the most common errors that we can encounter du
 - [BackEnd](#BackEnd)
   - [Address already in use](#address-already-in-use)
   - [Cannot find module](#cannot-find-module)
+  - [Acces denied](#acces-denied)
 - [FrontEnd](#frontend)
 
 
@@ -98,7 +99,7 @@ Require stack:
 This error occurs when Node.js cannot find the specified module in your code. In this case, the error message indicates that it cannot find the ```'../models/members.model.js'``` module that is being required in your 'auth.controller.js' file.
 
 To solve this problem, you can follow these steps:
-- ***Verify the module path:*** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
+- **Verify the module path:** Make sure the path to the 'members.model.js' file is correct. Ensure that the file actually exists at the specified location and that the path is correct in your code.
 
 - **Check spelling and case:** File systems on some operating systems are case-sensitive. Ensure that the spelling and letter case in the file path exactly match the file name and folder structure on your file system.
 
@@ -112,7 +113,77 @@ To reinstall the dependencies, open a terminal in your project directory and run
 ```bash
 npm i
 ```
+### Acces denied
 
+```bash
+/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:94
+          throw new SequelizeErrors.AccessDeniedError(err);
+                ^
+
+AccessDeniedError [SequelizeAccessDeniedError]: Access denied for user 'userName'@'localhost' (using password: YES)
+    at ConnectionManager.connect (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:94:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:222:24)
+    at async /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:174:32
+    at async ConnectionManager.getConnection (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:197:7)
+    at async /Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/sequelize.js:305:26
+    at async Sequelize.authenticate (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/sequelize/lib/sequelize.js:457:5)
+    at async checkConnection (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/database/index.js:17:9)
+    at async checkAndSyncMySQL (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js:25:11)
+    at async startAPI (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/index.js:36:11) {
+  parent: Error: Access denied for user 'userName'@'localhost' (using password: YES)
+      at Packet.asError (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at ClientHandshake.execute (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/commands/command.js:29:26)
+      at Connection.handlePacket (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:478:34)
+      at PacketParser.onPacket (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:97:12)
+      at PacketParser.executeStart (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:104:25)
+      at Socket.emit (node:events:514:28)
+      at addChunk (node:internal/streams/readable:343:12)
+      at readableAddChunk (node:internal/streams/readable:316:9)
+      at Readable.push (node:internal/streams/readable:253:10) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'userName'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  original: Error: Access denied for user 'userName'@'localhost' (using password: YES)
+      at Packet.asError (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at ClientHandshake.execute (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/commands/command.js:29:26)
+      at Connection.handlePacket (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:478:34)
+      at PacketParser.onPacket (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:97:12)
+      at PacketParser.executeStart (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/Users/cex/Desktop/AfricandotoV2/BackEnd/AfricanDoto.v2/node_modules/mysql2/lib/connection.js:104:25)
+      at Socket.emit (node:events:514:28)
+      at addChunk (node:internal/streams/readable:343:12)
+      at readableAddChunk (node:internal/streams/readable:316:9)
+      at Readable.push (node:internal/streams/readable:253:10) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'userName'@'localhost' (using password: YES)",
+    sql: undefined
+  }
+}
+```
+This error message indicates an "Access Denied" error when trying to establish a connection to a MySQL database using Sequelize. The error message Access denied for user 'userName'@'localhost' (using password: YES) suggests that the MySQL server denied access to the specified user with the given password.
+Here's what you can do to resolve this issue:
+
+- **Check Database Credentials:** double-check the username and password specified in your Sequelize configuration file. Ensure they are correct and have the necessary permissions to access the database.
+- **Verify MySQL User Privileges:** log in to your MySQL server using a MySQL client or a tool like phpMyAdmin.
+Check if the user 'userName' has the necessary privileges to connect to the database. If not, grant the required privileges using the following SQL command:
+´´´mysql
+GRANT ALL PRIVILEGES ON database_name.* TO 'userName'@'localhost' IDENTIFIED BY 'password';
+´´´
+Replace database_name with the actual name of your database, and ensure that 'userName' and 'password' match the credentials in your Sequelize configuration.
+
+- **Check Network Restrictions:** if you're trying to connect to a remote MySQL server, make sure that the server allows connections from your IP address. You might need to configure the MySQL server to accept remote connections or adjust firewall settings.
+- **Verify MySQL Server Status:** ensure that your MySQL server is up and running. Sometimes, connection issues occur when the MySQL server is not running or is misconfigured.
+**Check for Typos:** carefully check your Sequelize configuration and ensure there are no typos in the database name, username, or password.
+- **Database Host Configuration:** verify that the host configuration in your Sequelize setup is correct. If the MySQL server is on the same machine, 'localhost' is the correct host. If it's a remote server, use the server's IP address or domain name.
+- **Temporary Disable Firewall/Antivirus:** in some cases, firewall or antivirus software might block the connection. Temporarily disable them and check if the issue persists.
+- **Database Server Logs:** check MySQL server logs for any additional error messages or details about the connection attempt. MySQL error logs can provide valuable information.
 
 
 
