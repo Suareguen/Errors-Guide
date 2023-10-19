@@ -12,7 +12,7 @@ This is a small guide to some of the most common errors that we can encounter du
   - [Acces denied](#acces-denied)
   - [ConnectionRefusedError](#connectionrefusedError)
   - [Too many keys specified max 64 keys allowed sequelize](#too-many-keys-specified-max-64-keys-allowed-sequelize)
-  - [Router.use() requires a middleware function but got a Object](#router.use-requires-a-middleware-function-but-got-a-object)
+  - [Router.use requires a middleware function but got a Object](#router.use-requires-a-middleware-function-but-got-a-object)
 
 ## BackEnd
 
