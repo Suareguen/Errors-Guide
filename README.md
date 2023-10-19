@@ -297,3 +297,7 @@ Generally, this error occurs because the { alter: true } option is specified dur
 In cases where specific types of discrepancies occur in the database schema and the alter: true option is used, Sequelize may attempt to create multiple keys to resolve the issue. To solve this problem, the```alter``` option is removed from ```sync({ alter: true })```.
 
 ### Router.use() requires a middleware function but got a Object
+
+This means you are using the use() method of the Express router with an object instead of a valid middleware function. In Express.js, middlewares are functions that have access to the request object (req), response object (res), and the next middleware function in the application's request-response cycle. An object cannot be used as middleware in Express.
+
+To fix this error, check where you are using the use() method in your code and make sure you are passing a valid middleware function. Ensure that the variable you are passing to use() is indeed a function and not an object.
