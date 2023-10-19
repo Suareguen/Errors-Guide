@@ -11,7 +11,7 @@ This is a small guide to some of the most common errors that we can encounter du
   - [Acces denied](#acces-denied)
   - [ConnectionRefusedError](#connectionrefusedError)
   - [Too many keys specified max 64 keys allowed sequelize](#too-many-keys-specified-max-64-keys-allowed-sequelize)
-  - [Router.use requires a middleware function but got a Object](#router.use-requires-a-middleware-function but-got-a-object)
+  - [Router.use() requires a middleware function but got a Object](#router.use()-requires-a-middleware-function-but-got-a-object)
 
 ## BackEnd
 
@@ -296,4 +296,4 @@ Generally, this error occurs because the { alter: true } option is specified dur
 
 In cases where specific types of discrepancies occur in the database schema and the alter: true option is used, Sequelize may attempt to create multiple keys to resolve the issue. To solve this problem, the```alter``` option is removed from ```sync({ alter: true })```.
 
-### Router.use requires a middleware function but got a Object
+### Router.use() requires a middleware function but got a Object
