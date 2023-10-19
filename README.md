@@ -10,7 +10,7 @@ This is a small guide to some of the most common errors that we can encounter du
   - [Cannot find module](#cannot-find-module)
   - [Acces denied](#acces-denied)
   - [ConnectionRefusedError](#connectionrefusedError)
-  - [Too many keys specified](#too-many-keys-specified)
+  - [Too many keys specified max 64 keys allowed sequelize](#too-many-keys-specified-max-64-keys-allowed-sequelize)
 
 ## BackEnd
 
