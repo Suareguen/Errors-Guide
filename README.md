@@ -4,18 +4,12 @@ This is a small guide to some of the most common errors that we can encounter du
 
 ## **Index** 
 
-- [FrontEnd](#frontend)
+
 - [BackEnd (Express, MySQL, Sequelize)](#BackEnd)
   - [Address already in use](#address-already-in-use)
   - [Cannot find module](#cannot-find-module)
   - [Acces denied](#acces-denied)
   - [ConnectionRefusedError](#connectionrefusedError)
-- [FrontEnd (React JS)](#frontend)
-
-
-
-## Javascript
-
 
 ## BackEnd
 
@@ -291,6 +285,3 @@ Here are a few steps you can take to troubleshoot and resolve this issue:
 
 By carefully reviewing your MySQL server configuration, firewall settings, and ensuring that your application's connection details are correct, you should be able to resolve the "Connection Refused" error and successfully connect to your MySQL database.
 
-
-
-## FrontEnd
